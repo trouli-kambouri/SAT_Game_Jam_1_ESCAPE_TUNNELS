@@ -7,9 +7,7 @@ body
 {
     margin: 0;
     min-height: 100vh;
-
-    font-family: Arial, sans-serif;
-
+    font-family: Verdana, sans-serif;
     background-color: #111;
     color: white;
 }
@@ -18,10 +16,8 @@ body
 {
     width: 100%;
     max-width: 1000px;
-
     margin: 0 auto;
     padding: 30px;
-
     text-align: center;
 }
 
@@ -29,17 +25,13 @@ body
 {
     font-size: 48px;
     font-weight: bold;
-
     margin-bottom: 50px;
 }
-
 
 .game-page 
 {
     display: none;
-
     min-height: 400px;
-
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -50,20 +42,16 @@ body
     display: flex;
 }
 
-
 .game-page h1 
 {
     font-size: 40px;
-
     margin-bottom: 50px;
 }
-
 
 .buttons 
 {
     display: flex;
     gap: 20px;
-
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -71,14 +59,10 @@ body
 button 
 {
     padding: 15px 30px;
-
     font-size: 18px;
-
     border: none;
     border-radius: 8px;
-
     cursor: pointer;
-
     background-color: white;
     color: #111;
 }

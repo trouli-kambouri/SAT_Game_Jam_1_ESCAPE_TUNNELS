@@ -5,7 +5,7 @@ const STARTING_TIME = 10 * 60; // This is the amount of time that the timer is s
 const INCORRECT_PENALTY = 10; // This is the 'time penalty' amount in seconds.
 
 let timeRemaining = STARTING_TIME; // This sets the 'timeRemaining' to the amount left on the timer.
-let currentPage = 1;
+let currentPage = 0;
 let timerInterval;
 
 
@@ -20,16 +20,15 @@ const incorrectButtons = document.querySelectorAll(".incorrect-button");
 
 const winPlayAgainButton = document.getElementById("win-play-again");
 const losePlayAgainButton = document.getElementById("lose-play-again");
+const startGameButton = document.querySelector(".start-game-button");
 
 
 // Timer
 
-function updateTimer() {
-
+function updateTimer() 
+{
     const minutes = Math.floor(timeRemaining / 60);
-
     const seconds = timeRemaining % 60;
-
     timerElement.textContent =
         `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
@@ -38,19 +37,13 @@ function startTimer()
 {
     
     clearInterval(timerInterval); // Clear timer at start of each session
-
     timerInterval = setInterval(() => {
 
         timeRemaining--;
-
         updateTimer();
-
         if (timeRemaining <= 0) {   // IF timer has reached zero
-
             timeRemaining = 0;
-
             updateTimer();
-
             loseGame();
         }
 
@@ -145,17 +138,13 @@ function loseGame() { // Lose game
 }
 
 
-function startGame() { // Reset game state
+function startGame() { // Reset timer
 
     
     timeRemaining = STARTING_TIME;
-
     currentPage = 1;
-
     updateTimer();
-
     showPage(1);
-
     startTimer();
 }
 
@@ -174,6 +163,8 @@ incorrectButtons.forEach(button => {
 
 });
 
+startGameButton.addEventListener("click", startGame);
+
 // Play again from win screen
 winPlayAgainButton.addEventListener("click", startGame);
 
@@ -184,5 +175,3 @@ losePlayAgainButton.addEventListener("click", startGame);
 // Start the game
 
 updateTimer();
-
-startTimer();
