@@ -18,8 +18,8 @@ const pages = document.querySelectorAll(".game-page");
 const correctButtons = document.querySelectorAll(".correct-button");
 const incorrectButtons = document.querySelectorAll(".incorrect-button");
 
-const winPlayAgainButton = document.getElementById("win-play-again");
-const losePlayAgainButton = document.getElementById("lose-play-again");
+const winGoToStartButton = document.getElementById("win-go-to-start");
+const loseGoToStartButton = document.getElementById("lose-go-to-start");
 const startGameButton = document.querySelector(".start-game-button");
 
 
@@ -100,9 +100,7 @@ function correctAnswer() {
     if (currentPage === 5) {
 
         stopTimer();
-
         showWinPage();
-
         return;
     }
 
@@ -137,6 +135,12 @@ function loseGame() { // Lose game
     showLosePage();
 }
 
+function goToStartPage() { // go to Start Page
+
+    currentPage = 0;
+    showPage = 0;
+    
+}
 
 function startGame() { // Reset timer
 
@@ -147,7 +151,6 @@ function startGame() { // Reset timer
     showPage(1);
     startTimer();
 }
-
 
 // Buttons
 
@@ -166,10 +169,10 @@ incorrectButtons.forEach(button => {
 startGameButton.addEventListener("click", startGame);
 
 // Play again from win screen
-winPlayAgainButton.addEventListener("click", startGame);
+winGoToStartButton.addEventListener("click", goToStartPage);
 
 // Play again from lose screen
-losePlayAgainButton.addEventListener("click", startGame);
+loseGoToStartButton.addEventListener("click", goToStartPage);
 
 
 // Start the game
