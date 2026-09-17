@@ -1,7 +1,7 @@
 
 // Timer
 
-const STARTING_TIME = 10 * 60; // This is the amount of time that the timer is set to.
+const STARTING_TIME = 2 * 60; // This is the amount of time that the timer is set to.
 const INCORRECT_PENALTY = 10; // This is the 'time penalty' amount in seconds.
 
 let timeRemaining = STARTING_TIME; // This sets the 'timeRemaining' to the amount left on the timer.
@@ -111,7 +111,6 @@ function correctAnswer() {
 }
 
 function incorrectAnswer() {
-
     
     timeRemaining -= INCORRECT_PENALTY; // Remove 10 seconds
 
@@ -122,7 +121,6 @@ function incorrectAnswer() {
     updateTimer();
 
     if (timeRemaining === 0) {
-
         loseGame();
     }
 }
@@ -131,19 +129,17 @@ function incorrectAnswer() {
 function loseGame() { // Lose game
 
     stopTimer();
-
     showLosePage();
 }
 
 function goToStartPage() { // go to Start Page
 
     currentPage = 0;
-    showPage = 0;
+    showPage(0);
     
 }
 
 function startGame() { // Reset timer
-
     
     timeRemaining = STARTING_TIME;
     currentPage = 1;
