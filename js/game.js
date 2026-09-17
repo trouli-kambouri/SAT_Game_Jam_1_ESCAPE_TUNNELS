@@ -1,7 +1,7 @@
 
 // Timer
 
-const STARTING_TIME = 2 * 60; // This is the amount of time that the timer is set to.
+const STARTING_TIME = 1 * 60; // This is the amount of time that the timer is set to.
 const INCORRECT_PENALTY = 10; // This is the 'time penalty' amount in seconds.
 
 let timeRemaining = STARTING_TIME; // This sets the 'timeRemaining' to the amount left on the timer.
@@ -11,7 +11,7 @@ let timerInterval;
 
 // References to HTML elements
 
-const timerElement = document.getElementById("timer");
+const timer = document.getElementById("timer");
 
 const pages = document.querySelectorAll(".game-page");
 
@@ -25,11 +25,23 @@ const startGameButton = document.querySelector(".start-game-button");
 
 // Timer
 
+// CURRENTLY WORKING ON NOT SHOWING TIMER WHEN ON START PAGE
+
+/* function showTimer()
+{
+    if (== "none") 
+        {
+            timer.style.display = "block";
+        } else {
+            timer.style.display = "none";
+        }
+} */
+
 function updateTimer() 
 {
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
-    timerElement.textContent =
+    timer.textContent =
         `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
@@ -162,6 +174,7 @@ incorrectButtons.forEach(button => {
 
 });
 
+// Start game proper
 startGameButton.addEventListener("click", startGame);
 
 // Play again from win screen
